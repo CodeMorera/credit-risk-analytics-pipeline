@@ -205,3 +205,11 @@ cython_debug/
 marimo/_static/
 marimo/_lsp/
 __marimo__/
+
+venv/ 
+.venv/
+data/raw/ 
+.env 
+credit_risk_dbt/target/ 
+credit_risk_dbt/logs/ 
+credit-risk-analytics-pipeline/ 
