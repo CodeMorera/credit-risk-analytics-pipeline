@@ -1,0 +1,48 @@
+version: 2
+
+models:
+  - name: stg_loans
+    description: "Cleaned and standardized loan records from LendingClub"
+    columns:
+      - name: id
+        description: "Unique loan identifier"
+        data_tests:
+          - not_null
+      - name: loan_amnt
+        description: "Loan amount in USD"
+        data_tests:
+          - not_null
+      - name: is_default
+        description: "1 if loan defaulted or delinquent, 0 otherwise"
+        data_tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values: [0, 1]
+              quote: false
+      - name: grade
+        description: "LendingClub loan grade A through G"
+        data_tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values: ["A", "B", "C", "D", "E", "F", "G"]
+      - name: credit_score_band
+        description: "Borrower credit score band derived from FICO score"
+        data_tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values: ["poor", "fair", "good", "very good", "exceptional"]
+      - name: loan_status
+        description: "Current status of the loan"
+        data_tests:
+          - not_null
+      - name: fico_score
+        description: "Average of fico_range_low and fico_range_high"
+        data_tests:
+          - not_null
+      - name: annual_inc
+        description: "Borrower annual income in USD"
+        data_tests:
+          - not_null

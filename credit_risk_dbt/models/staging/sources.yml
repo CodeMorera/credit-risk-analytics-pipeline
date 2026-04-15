@@ -1,0 +1,8 @@
+version: 2
+
+sources:
+  - name: credit_risk
+    database: AwsDataCatalog
+    schema: credit_risk
+    tables:
+      - name: loans
