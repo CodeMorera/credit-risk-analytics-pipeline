@@ -1,0 +1,123 @@
+version: 1
+
+models:
+  - name: borrower_risk_summary
+    description: "This answers: which borrower segments have the highest default risk?"
+    columns: 
+      - name: credit_score_band
+        description: "Borrower credit score band derived from FICO score"
+        data_tests:
+          - not_null
+      - name: grade
+        description: "LendingClub loan grade A through G"
+        data_tests: 
+          - not_null
+          - accepted_values:
+              arguments:
+                values: ['A', 'B', 'C', 'D', 'E', 'F', 'G']
+      - name: total_loans
+        description: "A count of all loans per loan grade"
+        data_tests:
+          - not_null
+      - name: total_defaults
+        description: "A sum of all defaulted loans per loan grade"
+        data_tests: 
+          - not_null
+      - name: default_rate
+        description: "Decimal point of default loans percentage"
+        data_tests: 
+          - not_null
+      - name: avg_interest_rate
+        description: "Average rate in each loan per loan grade"
+        data_tests: 
+          - not_null
+      - name: avg_loan_amount
+        description: "The average decimal amount loan taken"
+        data_tests:
+          - not_null
+  - name: delinquency_trends
+    description: "Monthly delinquency counts and rates over time"
+    columns:
+      - name: issue_year_month
+        description: "Month of loan issuance"
+        data_tests:
+          - not_null
+          - unique
+      - name: total_loans
+        description: "Total loans issued that month"
+        data_tests:
+          - not_null
+      - name: delinquency_rate
+        description: "Proportion of delinquent loans that month"
+        data_tests:
+          - not_null
+      - name: running_delinquency
+        description: "Cumulative delinquent loans over time"
+        data_tests:
+          - not_null
+  - name: portfolio_performance
+    description: "Monthly performance of loans"
+    columns:
+      - name: issue_year_month
+        description: "Month of loan issuance"
+        data_tests:
+          - not_null
+          - unique
+      - name: total_loans
+        description: "Total loans issued that month"
+        data_tests:
+          - not_null
+      - name: total_portfolio_balance
+        description: "Sum of loan amount each month"
+        data_tests:
+          - not_null
+      - name: avg_interest_rate
+        description: "Average interest rate for that month"
+        data_tests:
+          - not_null
+      - name: avg_loan_amount
+        description: "Average loan amount for that month"
+        data_tests:
+          - not_null
+      - name: running_portfolio_balance
+        description: "Culmulative loan balance over time"
+        data_tests:
+          - not_null
+  - name: loan_segment_summary
+    description: "Graded summary of common loans per grade"
+    columns:
+      - name: purpose
+        description: "Reason for loan"
+        data_tests:
+          - not_null
+      - name: grade
+        description: "LendingClub loan grade A through G"
+        data_tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values: ["A", "B", "C", "D", "E", "F", "G"]
+      - name: total_loans
+        description: "A count of every loan per purpose"
+        data_tests:
+          - not_null
+      - name: total_balance
+        description: "Sum of loan amount per purpose"          
+        data_tests:
+          - not_null
+      - name: total_defaults
+        description: "Sum of every defaulted loans per purpose"          
+        data_tests:
+          - not_null
+      - name: default_rate
+        description: "Decimal point percentage of defaults grouped by purpose"          
+        data_tests:
+          - not_null
+      - name: avg_interest_rate
+        description: "Average interest rate per group"
+        data_tests:
+          - not_null
+
+
+          
+      
