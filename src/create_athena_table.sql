@@ -24,7 +24,7 @@ CREATE EXTERNAL TABLE IF NOT EXISTS loans (
   issue_y             INT,
   issue_year_month    STRING,
   fico_score          DOUBLE,
-  credit_score_band   STRING
+  credit_score_band   STRING,
 )
 ROW FORMAT DELIMITED
 FIELDS TERMINATED BY ','

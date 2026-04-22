@@ -70,6 +70,6 @@ def clean():
     assert len(df) > 0, "DataFrame is empty"
     print(f"Clean complete. Rows: {len(df)}, Defaults: {df['is_default'].sum()}")
 
-    df.to_csv('../data/clean/loans_clean.csv', index=False)
+    df.to_csv('../data/cleaned/loans_clean.csv', index=False)
 
 clean()

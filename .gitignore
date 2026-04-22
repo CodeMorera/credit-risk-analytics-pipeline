@@ -213,3 +213,5 @@ data/raw/
 credit_risk_dbt/target/ 
 credit_risk_dbt/logs/ 
 credit-risk-analytics-pipeline/ 
+src/test.py
+notebooks/raw_date.ipynb
